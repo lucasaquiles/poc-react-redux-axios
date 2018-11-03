@@ -1,31 +1,54 @@
 import React, { Component } from 'react';
 
 import {connect} from 'react-redux';
+import { simpleAction } from './actions/simplesAction' 
 
-import logo from './logo.svg';
+import RowComponent from './RowComponent' 
+
 import './App.css';
 
+const mapStateToProps = state => ({
+  
+  ...state
+});
+
+const mapDispatchToProps = dispatch => ({
+  simpleAction:() => dispatch(simpleAction())
+});
+
 class App extends Component {
+
+  componentDidMount(){
+    this.props.simpleAction()
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          {console.log(this.props)}
+          <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>First name</th>
+                  <th>Last name</th>
+                </tr>
+              </thead>
+              <tbody>
+              {this.props.simpleReducer.result.data.map((result, index) => {
+            return (
+                <RowComponent key={index} info={result} />
+            );
+          })}
+              </tbody>
+          </table>
+          <p>Exibindo {this.props.simpleReducer.result.per_page} resultados de {this.props.simpleReducer.result.total}</p>
+          
         </header>
       </div>
     );
   }
 }
 
-export default connect()(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

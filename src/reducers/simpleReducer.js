@@ -1,5 +1,7 @@
 
-export default (state = {}, action) => {
+export default (state = {
+    result: {data:[]}
+}, action) => {
     switch(action.type){
 
         case 'SIMPLE_ACTION':

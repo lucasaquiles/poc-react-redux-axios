@@ -1,8 +1,14 @@
-export const simplesAction = () => dispatch => {
+import axios from 'axios'
 
-    dispatch({
+export const simpleAction = () => (dispatch) => {
 
-        type: 'SIMPLE_ACTION',
-        payload: 'result'
-    })
+    return axios.get('https://reqres.in/api/users')
+        .then(resp=>{
+            return dispatch({
+                type: 'SIMPLE_ACTION',
+                payload: resp.data
+        });
+    }).catch(error => {
+        throw(error);
+    }); 
 }
