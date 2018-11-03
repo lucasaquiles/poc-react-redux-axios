@@ -30,3 +30,19 @@
     transform: rotate(360deg);
   }
 }
+
+.paginador{
+  display:block;
+  list-style: none;
+}
+.paginador li{
+  display: inline;
+  padding:10px
+}
+.paginador li a{
+  color:#fff;
+  text-decoration: none;
+}
+.paginador li a:hover{
+  text-decoration: underline
+}

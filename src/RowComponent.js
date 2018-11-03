@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 export default class RowComponent extends Component {
     
+    rowClick = (event) => {
+        console.log("ev: ",event.currentTarget);
+    }
+
     render(){
         
-        {console.log("obj", this)}
         return (
-            <tr key={this.props.key}>
+            <tr key={this.props.index} onClick={ this.rowClick }>
                   <td><img src={this.props.info.avatar} /></td>
                   <td>{this.props.info.first_name}</td>
                   <td>{this.props.info.last_name}</td>

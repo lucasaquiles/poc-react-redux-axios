@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 
 import {connect} from 'react-redux';
-import { simpleAction } from './actions/simplesAction' 
+import { simpleAction, pagitationAction } from './actions/simplesAction' 
+
 
 import RowComponent from './RowComponent' 
+import PaginatorComponent from './PaginatorComponent' 
 
 import './App.css';
 
 const mapStateToProps = state => ({
-  
   ...state
 });
 
 const mapDispatchToProps = dispatch => ({
-  simpleAction:() => dispatch(simpleAction())
+  simpleAction:() => dispatch(simpleAction()),
+  pagitationAction:(page) => dispatch(pagitationAction(page))
 });
 
 class App extends Component {
@@ -39,13 +41,13 @@ class App extends Component {
               <tbody>
               {this.props.simpleReducer.result.data.map((result, index) => {
             return (
-                <RowComponent key={index} info={result} />
+                <RowComponent key={index} index={index} info={result} />
             );
           })}
               </tbody>
           </table>
-          <p>Exibindo {this.props.simpleReducer.result.per_page} resultados de {this.props.simpleReducer.result.total}</p>
-          
+
+          <PaginatorComponent  total={this.props.simpleReducer.result.total_pages} current={this.props.simpleReducer.result.page} />
         </header>
       </div>
     );

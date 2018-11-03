@@ -12,3 +12,16 @@ export const simpleAction = () => (dispatch) => {
         throw(error);
     }); 
 }
+
+export const pagitationAction = (page) => (dispatch) => {
+    console.log("page selecionado", page);
+    return axios.get('https://reqres.in/api/users?page='+page)
+        .then(resp=>{
+            return dispatch({
+                type: 'PAGINATION_ACTION',
+                payload: resp.data
+        });
+    }).catch(error => {
+        throw(error);
+    }); 
+}
