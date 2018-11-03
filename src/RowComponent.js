@@ -10,6 +10,7 @@ export default class RowComponent extends Component {
                   <td><img src={this.props.info.avatar} /></td>
                   <td>{this.props.info.first_name}</td>
                   <td>{this.props.info.last_name}</td>
+                  <td></td>
             </tr>
             
         )

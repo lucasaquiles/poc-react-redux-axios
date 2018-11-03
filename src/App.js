@@ -33,6 +33,7 @@ class App extends Component {
                   <th></th>
                   <th>First name</th>
                   <th>Last name</th>
+                  <th>Options</th>
                 </tr>
               </thead>
               <tbody>
