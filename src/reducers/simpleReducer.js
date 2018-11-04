@@ -1,6 +1,8 @@
 
 export default (state = {
-    result: {data:[]}
+    result: {data:[
+        
+    ]}
 }, action) => {
     console.log("type action", action.type);
     switch(action.type){

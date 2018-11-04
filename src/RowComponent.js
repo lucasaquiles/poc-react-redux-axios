@@ -4,6 +4,7 @@ export default class RowComponent extends Component {
     
     rowClick = (event) => {
         console.log("ev: ",event.currentTarget);
+        this.props.paginationAction(event.currentTarget)
     }
 
     render(){

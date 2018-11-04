@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { simpleAction, paginationAction } from './actions/simpleAction' 
 
-export default class PaginatorComponent extends Component {
+const mapDispatchToProps = dispatch => ({
+    paginationAction: page => dispatch(paginationAction(page))
+})  
+
+class PaginatorComponent extends Component {
     
     handlerPaginatorClick = (event) => {
-        event.preventDefault();
-        console.log("event", event.currentTarget.getAttribute('current'));
+         
+        // console.log("event", event.currentTarget.getAttribute('current'));
         
-        
+        this.props.paginationAction(event.currentTarget.getAttribute('current'))
     }
 
-    componentDidMount(){
-        this.props.pagitationAction(2);        
-    }
-
-    createPageList = () => {
+    createPageList = (it) => {
+        
         const url = "#";
         let list = [];
         
@@ -25,10 +28,13 @@ export default class PaginatorComponent extends Component {
     }
 
     render() {
+        console.log("coro", this.props);
         return (
-            <ul class="paginador">
+            <ul className="paginador">
                  {this.createPageList()}
             </ul>
         )
     }
 }
+
+export default connect(null, mapDispatchToProps)(PaginatorComponent)
