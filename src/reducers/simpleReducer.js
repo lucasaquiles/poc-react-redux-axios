@@ -1,14 +1,16 @@
 
 export default (state = {
-    result: {data:[
-        
-    ]}
+    result: {
+        load: true,
+        data:[]
+    }
 }, action) => {
-    console.log("type action", action.type);
+    console.log("type action", state);
     switch(action.type){
 
         case 'SIMPLE_ACTION':
             return {
+                load: false,
                 result: action.payload
             }
         case 'PAGINATION_ACTION':

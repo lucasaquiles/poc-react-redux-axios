@@ -8,7 +8,7 @@ import PaginatorComponent from './PaginatorComponent'
 
 
 const mapStateToProps = state => ({
-    ...state
+   ...state
   });
 
 const mapDispatchToProps = dispatch => ({
@@ -23,29 +23,39 @@ class MainComponent extends Component {
     }
 
     render() {
-       return (
-           <div>
-                <table>
-                <thead>
-                    <tr>
-                        
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Options</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                {this.props.simpleReducer.result.data.map((result, index) => {
-                    return (
-                        <RowComponent key={index} index={index} info={result} />
-                    );
-                    })}
-                </tbody>
-            </table>
-            <PaginatorComponent total={this.props.simpleReducer.result.total_pages} current={this.props.simpleReducer.result.page} />
-          </div>
-        )}
+        
+        if(this.props.simpleReducer.result.load){
+            return(
+                <p>Carregando...</p>
+            )
+        }else{
+            return (
+                <div>
+                     <p>{JSON.stringify(this.props.simpleReducer.result.load)}</p>
+                     <table>
+                     <thead>
+                         <tr>
+                             
+                             <th>First name</th>
+                             <th>Last name</th>
+                             <th>Options</th>
+                             <th></th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                     {this.props.simpleReducer.result.data.map((result, index) => {
+                         return (
+                             <RowComponent key={index} index={index} info={result} />
+                         );
+                         })}
+                     </tbody>
+                 </table>
+                 <PaginatorComponent total={this.props.simpleReducer.result.total_pages} paginationAction={this.props.paginationAction} current={this.props.simpleReducer.result.page} />
+               </div>
+             )
+        } 
+
+       }
  }
 
  export default connect(mapStateToProps, mapDispatchToProps)(MainComponent);
