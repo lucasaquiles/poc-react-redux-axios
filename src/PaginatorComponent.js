@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-//mport { connect } from 'react-redux';
-//import { simpleAction, paginationAction } from './actions/simpleAction' 
+import { connect } from 'react-redux';
+import { paginationAction } from './actions/simpleAction' 
 
-//const mapDispatchToProps = dispatch => ({
-  //  paginationAction: page => dispatch(paginationAction(page))
-//})  
+const mapDispatchToProps = dispatch => ({
+   paginationAction: page => dispatch(paginationAction(page))
+})  
 
-export default class PaginatorComponent extends Component {
+ class PaginatorComponent extends Component {
     
     click = (event) => {
          
@@ -36,3 +36,5 @@ export default class PaginatorComponent extends Component {
         )
     }
 }
+
+export default connect(null, mapDispatchToProps) (PaginatorComponent)

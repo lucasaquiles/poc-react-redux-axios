@@ -26,6 +26,7 @@ class MainComponent extends Component {
         
         if(this.props.simpleReducer.result.load){
             return(
+
                 <p>Carregando...</p>
             )
         }else{
@@ -50,7 +51,7 @@ class MainComponent extends Component {
                          })}
                      </tbody>
                  </table>
-                 <PaginatorComponent total={this.props.simpleReducer.result.total_pages} paginationAction={this.props.paginationAction} current={this.props.simpleReducer.result.page} />
+                 <PaginatorComponent total={this.props.simpleReducer.result.total_pages}  current={this.props.simpleReducer.result.page} />
                </div>
              )
         } 
