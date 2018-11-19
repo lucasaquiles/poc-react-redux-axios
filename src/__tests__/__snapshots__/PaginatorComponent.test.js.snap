@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paginator should render  1`] = `
+<Connect(PaginatorComponent)
+  current={
+    Object {
+      "page": 1,
+    }
+  }
+  total={
+    Object {
+      "total_pages": 2,
+    }
+  }
+>
+  <PaginatorComponent
+    current={
+      Object {
+        "page": 1,
+      }
+    }
+    paginationAction={[Function]}
+    total={
+      Object {
+        "total_pages": 2,
+      }
+    }
+  >
+    <ul
+      className="paginador"
+    />
+  </PaginatorComponent>
+</Connect(PaginatorComponent)>
+`;

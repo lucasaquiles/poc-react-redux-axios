@@ -9,9 +9,14 @@ const store = mockStore({});
 describe('Paginator', () => {
 
     it('should render ', ()=> {
-        const wrapper = shallow (<PaginatorComponent  />, {context: {store}})
-        const component = wrapper.dive()
 
-        console.log(wrapper);        
+
+        const total={total_pages:2}  
+        const current={page:1}
+
+        const wrapper = mount (<PaginatorComponent  total={total} current={current} />, {context: {store}});
+        
+        expect(wrapper).toMatchSnapshot();
+       
     });
 })
