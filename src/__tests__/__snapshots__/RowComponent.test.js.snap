@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RowComponent /> should render row 1`] = `
+<RowComponent
+  info={
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg",
+      "first_name": "George",
+      "id": 1,
+      "last_name": "Bluth",
+    }
+  }
+>
+  <tr
+    onClick={[Function]}
+  >
+    <td>
+      <img
+        src="https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg"
+      />
+    </td>
+    <td>
+      George
+    </td>
+    <td>
+      Bluth
+    </td>
+    <td />
+  </tr>
+</RowComponent>
+`;

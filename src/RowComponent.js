@@ -9,6 +9,8 @@ export default class RowComponent extends Component {
 
     render(){
         
+        console.log("no row", this.props);
+        
         return (
             <tr key={this.props.index} onClick={ this.rowClick }>
                   <td><img src={this.props.info.avatar} /></td>
